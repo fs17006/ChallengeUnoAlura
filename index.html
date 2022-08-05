@@ -8,7 +8,7 @@
     <div class="">
       <input type="text" name="" value="" id="entrada">
       <button  onclick="entrada()" type="button" name="button">Encriptar</button>
-      <button type="button" name="button">Desencriptar</button>
+      <button onclick="desEncriptar()" type="button" name="button">Desencriptar</button>
     </div>
     <div class="">
       <textarea name="name" rows="8" cols="80" id="salida"></textarea>
@@ -29,16 +29,31 @@
   function entrada(){
     aux=input.value;
         aux=aux.replace("e","enter");
-        aux=aux.replace("i","imesr");
+        aux=aux.replace("i","imes");
         aux=aux.replace("a","ai");
         aux=aux.replace("o","ober");
         aux=aux.replace("u","ufat");
     document.getElementById('salida').value = aux;
     input.value="";
+    aux="";
     textarea.focus();
+  }
+
+  function desEncriptar(){
+    textarea=document.querySelector("textarea");
+    aux=textarea.value;
+    aux=aux.replace("enter","e");
+    aux=aux.replace("imes","i");
+    aux=aux.replace("ai","a");
+    aux=aux.replace("ober","o");
+    aux=aux.replace("ufat","u");
+    textarea.value="";
+    document.getElementById('salida').value=aux;
+    textarea.focus();
+    aux="";
   }
 
   var button=document.querySelector("button");
   button.onClick=entrada();
-
+  button.onClick=desEncriptar();
 </script>
