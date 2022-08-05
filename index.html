@@ -25,13 +25,20 @@
   var aux;
 
   input=document.querySelector("input");
+
   function entrada(){
-    document.getElementById('salida').value = input.value;
+    aux=input.value;
+        aux=aux.replace("e","enter");
+        aux=aux.replace("i","imesr");
+        aux=aux.replace("a","ai");
+        aux=aux.replace("o","ober");
+        aux=aux.replace("u","ufat");
+    document.getElementById('salida').value = aux;
     input.value="";
     textarea.focus();
   }
 
   var button=document.querySelector("button");
-  button.onClick=entrada(aux);
+  button.onClick=entrada();
 
 </script>
