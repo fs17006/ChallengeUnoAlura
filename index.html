@@ -27,6 +27,8 @@
   input=document.querySelector("input");
   function entrada(){
     document.getElementById('salida').value = input.value;
+    input.value="";
+    textarea.focus();
   }
 
   var button=document.querySelector("button");
