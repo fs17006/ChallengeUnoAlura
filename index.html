@@ -12,8 +12,8 @@
     </div>
     <div class="">
       <textarea name="name" rows="8" cols="80" id="salida"></textarea>
-      <button type="button" name="button">Copiar</button>
-      <button type="button" name="button">Limpiar</button>
+      <button onclick="copiar()" type="button" name="button">Copiar</button>
+      <button onclick="limpiarArea()" type="button" name="button">Limpiar</button>
     </div>
   </body>
 </html>
@@ -53,7 +53,22 @@
     aux="";
   }
 
+  function limpiarArea(){
+    textarea.value="";
+    input.focus();
+  }
+
+  function copiar(){
+    var contenido=document.getElementById("salida");
+    contenido.select();
+    document.execCommand("copy");
+
+    alert("Texto copiado con exito!!");
+  }
+
   var button=document.querySelector("button");
   button.onClick=entrada();
   button.onClick=desEncriptar();
+  button.onClick=limpiarArea();
+  button.onClick=copiar();
 </script>
