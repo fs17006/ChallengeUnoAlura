@@ -6,12 +6,12 @@
   </head>
   <body>
     <div class="">
-      <textarea name="name" rows="8" cols="80"></textarea>
-      <button type="button" name="button">Encriptar</button>
+      <input type="text" name="" value="" id="entrada">
+      <button  onclick="entrada()" type="button" name="button">Encriptar</button>
       <button type="button" name="button">Desencriptar</button>
     </div>
     <div class="">
-      <textarea name="name" rows="8" cols="80"></textarea>
+      <textarea name="name" rows="8" cols="80" id="salida"></textarea>
       <button type="button" name="button">Copiar</button>
       <button type="button" name="button">Limpiar</button>
     </div>
@@ -19,6 +19,17 @@
 </html>
 
 <script>
+  var input;
+  var pulso=false;
+  var textarea;
+  var aux;
 
+  input=document.querySelector("input");
+  function entrada(){
+    document.getElementById('salida').value = input.value;
+  }
+
+  var button=document.querySelector("button");
+  button.onClick=entrada(aux);
 
 </script>
