@@ -2,19 +2,37 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="estilos.css">
     <title>Encriptador</title>
   </head>
   <body>
-    <div class="">
-      <input type="text" name="" value="" id="entrada">
-      <button  onclick="entrada()" type="button" name="button">Encriptar</button>
-      <button onclick="desEncriptar()" type="button" name="button">Desencriptar</button>
-    </div>
-    <div class="">
-      <textarea name="name" rows="8" cols="80" id="salida"></textarea>
-      <button onclick="copiar()" type="button" name="button">Copiar</button>
-      <button onclick="limpiarArea()" type="button" name="button">Limpiar</button>
-    </div>
+    <header>
+      <h1>Bienvenido al Encriptador!!!</h1>
+    </header>
+    <section class="home">
+      <div class="in-flex">
+        <input type="text" name="" value="" id="entrada">
+        <button  class="boton" onclick="entrada()" type="button" name="button">Encriptar</button>
+        <button class="boton" onclick="desEncriptar()" type="button" name="button">Desencriptar</button>
+        <br>
+        <br>
+        <p>Solo se admiten letras minusculas sin ascento</p>
+      </div>
+      <div class="in-flex">
+        <textarea name="name" rows="8" cols="80" id="salida"></textarea>
+        <button class="boton" onclick="copiar()" type="button" name="button">Copiar</button>
+        <button class="boton" onclick="limpiarArea()" type="button" name="button">Limpiar</button>
+      </div>
+    </section>
+    <footer>
+      <p>Elaborado por: Fernando Flores <br></p>
+      <p>Medios de contacto:<br>
+      <li><a href="https://www.linkedin.com/in/fernando-gabriel/">LinkedIn</a></li>
+      <li> <a href="https://github.com/fs17006"> Github </a> </li>
+    </p>
+    </footer>
   </body>
 </html>
 
