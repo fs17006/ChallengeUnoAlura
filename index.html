@@ -20,8 +20,9 @@
         <br>
         <p>Solo se admiten letras minusculas sin ascento</p>
       </div>
-      <div class="in-flex">
-        <textarea name="name" rows="8" cols="80" id="salida"></textarea>
+      <div id="oculto" class="in-flex">
+        <img id="imagen" src="lupa.png" alt="">
+        <textarea name="name" rows="8" cols="80" id="salida"> </textarea>
         <button class="boton" onclick="copiar()" type="button" name="button">Copiar</button>
         <button class="boton" onclick="limpiarArea()" type="button" name="button">Limpiar</button>
       </div>
@@ -37,45 +38,70 @@
 </html>
 
 <script>
+
+//declaracion de variables
   var input;
-  var pulso=false;
   var textarea;
   var aux;
 
+//funcion para ocultar el textarea
+function inicio(){
+  //lectura del input
   input=document.querySelector("input");
+  if(input.value==""){
+    document.getElementById("imagen").style.display = "block";
+    document.getElementById("salida").style.display = "none";
+  }
+}
+
+//funcion que pasa el texto del input a una variable auxiliar
+//para luego pasarla al textarea
   function entrada(){
-    aux=input.value;
-        aux=aux.replace("e","enter");
-        aux=aux.replace("i","imes");
-        aux=aux.replace("a","ai");
-        aux=aux.replace("o","ober");
-        aux=aux.replace("u","ufat");
-    document.getElementById('salida').value = aux;
+    //toLowerCase convierte el texto a minusculas
+    aux=input.value.toLowerCase();
+    if(input.value!=""){
+      document.getElementById("imagen").style.display = "none";
+      document.getElementById("salida").style.display = "block";
+
+    }
+
+    aux=aux.replace(/e/igm,"enter");
+    aux=aux.replace(/o/igm,"ober");
+    aux=aux.replace(/i/igm,"imes");
+    aux=aux.replace(/a/igm,"ai");
+    aux=aux.replace(/u/igm,"ufat");
+    document.getElementById("salida").value = aux;
     input.value="";
     aux="";
     textarea.focus();
   }
 
+//la funciona a demas de Desencriptar limpia el texto encriptado
   function desEncriptar(){
     textarea=document.querySelector("textarea");
     aux=textarea.value;
-    aux=aux.replace("enter","e");
-    aux=aux.replace("imes","i");
-    aux=aux.replace("ai","a");
-    aux=aux.replace("ober","o");
-    aux=aux.replace("ufat","u");
+    aux=aux.replace(/enter/igm,"e");
+    aux=aux.replace(/ober/igm,"o");
+    aux=aux.replace(/imes/igm,"i");
+    aux=aux.replace(/ai/igm,"a");
+    aux=aux.replace(/ufat/igm,"u");
     textarea.value="";
-    document.getElementById('salida').value=aux;
+    document.getElementById("salida").value=aux;
     textarea.focus();
     aux="";
   }
 
+//limpia el contenido del input y el textarea, ademas enfoca el cursor en el input
   function limpiarArea(){
+    input.value="";
     textarea.value="";
     input.focus();
+    inicio();
   }
 
+//funcion que permite copiar el contenido del textarea
   function copiar(){
+    //declaracion de variable de procesp
     var contenido=document.getElementById("salida");
     contenido.select();
     document.execCommand("copy");
@@ -83,6 +109,9 @@
     alert("Texto copiado con exito!!");
   }
 
+  inicio();
+
+//declaracion de variable para accinar acciones a los botones
   var button=document.querySelector("button");
   button.onClick=entrada();
   button.onClick=desEncriptar();
