@@ -72,6 +72,12 @@ textarea{
   height: 50%;
 }
 
+.estiloImg{
+  margin: 5px;
+  height: 50%;
+  width: 96%;
+}
+
 p{
     font-family: "Times New Roman", Times, serif;
 }
